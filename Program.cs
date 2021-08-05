@@ -37,16 +37,17 @@ namespace ChannelsExample
                     {
                         uint subscribedValue = await unsignedIntegersChannel.Reader.ReadAsync();
                         Console.WriteLine($"Subscribing: {subscribedValue}");
+                        // OR
+                        //await foreach (var subscribedValue in unsignedIntegersChannel.Reader.ReadAllAsync())
+                        //{
+                        //    Console.WriteLine($"Subscribing: {subscribedValue}");
+                        //}
                     }
                     else
                     {
                         cts.CancelAfter(TimeSpan.FromSeconds(10));
                     }
-                    // OR
-                    //await foreach (var subscribedValue in unsignedIntegersChannel.Reader.ReadAllAsync())
-                    //{
-                    //    Console.WriteLine($"Subscribing: {subscribedValue}");
-                    //}
+
                 }
             }, cts.Token);
 
