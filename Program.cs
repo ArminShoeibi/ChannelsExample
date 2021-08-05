@@ -20,7 +20,7 @@ namespace ChannelsExample
                     Console.WriteLine($"Publishing: {tempIndex}");
                     await unsignedIntegersChannel.Writer.WriteAsync(tempIndex);
 
-                    if (tempIndex == uint.MaxValue)
+                    if (tempIndex == uint.MaxValue) // if you are reading this code and want to test it, change the right hand value to 100-1000
                     {
                         unsignedIntegersChannel.Writer.Complete();
                     }
